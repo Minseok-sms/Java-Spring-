@@ -37,7 +37,22 @@ Given - When - Then 이란?
 실행 : 변수의 값을 실제 메서드를 호출한다.
 검증 : 실행값이 맞는지 검증한다.
 
+@Test, @BeforeEach
+@BeforeEach 사용시 @Test 돌아가기전에 먼저 코드를 실행시켜준다.
+
 <img width="585" alt="스크린샷 2022-06-11 오후 11 05 25" src="https://user-images.githubusercontent.com/75271204/173191206-d363909e-5af6-4ecb-bbe5-a0f560154a34.png">
+
+
+인터페이스뿐만아니라 구현클레스도 함께 의존하고 있다. "DIP" 위반
+다른 구현클래스로 변경할려면 클라이언트코드도 변경해야한다. "OCP" 위반
+<img width="578" alt="스크린샷 2022-06-12 오후 9 41 09" src="https://user-images.githubusercontent.com/75271204/173233687-6be4f3e6-3b1d-452a-9af8-e79783a80c16.png">
+
+DIP와 OCP를 어떻게 해결할 것인가?
+1. AppConfig를 사용하여 구현객체를 생성하고 연결하는 설정클래스
+AppConfig를 사용하여서 DIP를 지킨다 즉 인터페이스만 바라보고있게함. 생성자를 통해 주입한다 -> 생성자주입
+<img width="500" alt="스크린샷 2022-06-12 오후 9 59 19" src="https://user-images.githubusercontent.com/75271204/173234442-56068666-23e3-4ccb-827b-d2e00a3db615.png">
+
+<img width="732" alt="스크린샷 2022-06-12 오후 10 17 12" src="https://user-images.githubusercontent.com/75271204/173235117-c6aa5d42-d386-4eeb-9e57-7d9d2fb3407d.png">
 
 
 
