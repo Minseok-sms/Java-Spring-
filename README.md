@@ -27,6 +27,7 @@
 
 
 <회원 클래스 다이어그램>
+
 <img width="509" alt="스크린샷 2022-06-11 오후 10 46 12" src="https://user-images.githubusercontent.com/75271204/173190523-530b51d4-73f7-49ab-9bfc-8433b199212e.png">
 
 
