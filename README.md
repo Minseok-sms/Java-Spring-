@@ -119,10 +119,27 @@ applicationContext을 스프링 컨테이너라고 한다. -> AppConfig을 직�
 * 부모와 자식의 상속관계에서 부모를 조회시 자식이 둘 이상이면 오류가 발생한다.
 
 
+* BeanFactory는 스프링 컨테이너의 최상위 인터페이스이다 -> ApplicationContext는 BeanFactory의 모두 상속받아서 제공
+ApplicationContext는 부가적으로 여러 기능을 제공
+
+<img width="475" alt="스크린샷 2022-06-15 오후 11 20 44" src="https://user-images.githubusercontent.com/75271204/173850614-8152d371-c057-4dd0-91b5-fe5ad89ee3db.png">
 
 
+* 스프링 컨테이너는 다양한 형식의 설정을 제공한다
+1. Annotation 기반 자바코드 설정 (AnnotationConfigApplicationContext)
+2. XML 설정 사용 (GenericXmlApplicationContext)
 
 
+<XML을 통한 스프링 컨테이너에 빈 등록>
+
+<img width="738" alt="ApplicationContext" src="https://user-images.githubusercontent.com/75271204/173855470-de11d6e6-9c30-415e-a2d1-5dec140014f7.png">
+
+<img width="774" alt="스크린샷 2022-06-15 오후 11 41 32" src="https://user-images.githubusercontent.com/75271204/173855490-da0e68fb-896a-4a7d-a43b-37e591dcb9bc.png">
+
+
+* 스프링은 빈 설정 메타정보를 BeanDefinition이라는 추상화를 사용
+XML, 자바코드를 사용해도 @Bean, <bean>을 이용해 메타정보를 생성해낸다. 
+-> 자세한거는 넘어가도됨.
 
 
 
