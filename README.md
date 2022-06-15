@@ -103,6 +103,20 @@ applicationContext을 스프링 컨테이너라고 한다. -> AppConfig을 직�
 
 
 
+<Bean을 조회하는 과정>
+
+<img width="770" alt="스크린샷 2022-06-15 오후 10 45 32" src="https://user-images.githubusercontent.com/75271204/173842760-310a2e49-31f2-4628-a936-557efeb6f5e0.png">
+
+* Bean을 조회하는 과정에서 같은 타입의 빈이 둘이상일시 중복오류 발생.
+
+<img width="811" alt="스크린샷 2022-06-15 오후 10 50 32" src="https://user-images.githubusercontent.com/75271204/173844226-df6a93d8-5404-4a86-8f6d-be5767e57d51.png">
+
+<img width="522" alt="springframework beans factory NoUniqueBeanDefinitionException" src="https://user-images.githubusercontent.com/75271204/173844932-a9fa4c31-5a4c-4035-942a-8b97ea740be8.png">
+
+중복의 타입이 존재시 해결법 -> 빈이름을 지정하면 된다.(메서드 이름)
+
+
+* 부모와 자식의 상속관계에서 부모를 조회시 자식이 둘 이상이면 오류가 발생한다.
 
 
 
