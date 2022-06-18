@@ -142,4 +142,64 @@ XML, 자바코드를 사용해도 @Bean, <bean>을 이용해 메타정보를 생
 -> 자세한거는 넘어가도됨.
 
 
+* 웹어플리케이션 및 싱글톤
+
+싱글톤이 아닌 순수한 컨테이너에서는 요청할때마다 새로운 객체를 생성한다.
+이렇게 되면 웹사이트의 다수요청시 지속적인 객체를 생성해야해서 매우 비효율적이다.
+
+<img width="475" alt="AppConfig appConfig = new AppConfig();" src="https://user-images.githubusercontent.com/75271204/174432389-dea3814f-e3bb-402a-b981-86c6e996d99e.png">
+
+
+<img width="599" alt="스크린샷 2022-06-18 오후 3 02 55" src="https://user-images.githubusercontent.com/75271204/174432394-d04db78a-f5ea-475f-9203-1d2820ae1f5c.png">
+
+
+
+
+#싱글톤 패턴(Singleton Pattern)
+객체를 딱하나만 생성하여 그것을 공유하여 사용하는 디자인 패턴이다. 
+
+<img width="607" alt="public static SingletonService getInstance(){" src="https://user-images.githubusercontent.com/75271204/174432401-2d7e737a-2ddd-4786-b1d3-a776b7e91c61.png">
+
+
+<img width="589" alt="void singletonServiceTest(){" src="https://user-images.githubusercontent.com/75271204/174432404-b464a9c6-e4d1-4218-850a-a32b504b28ae.png">
+
+ 
+<img width="632" alt="gstart singlet SingletonService931206beb" src="https://user-images.githubusercontent.com/75271204/174432410-88727a5f-9921-475c-8b2c-ceb77c4e5baa.png">
+         
+
+같은 인스턴스를 사용하게된다.
+하지만 싱글톤 패턴은 단점들이 많다.
+1. 싱글톤 패턴을 구현하는 코드가 많다
+2. 구체클래스에 의존하게됨 -> DIP 위반
+3. OCP위반
+4. 유연성이 떨어진다.
+
+
+#싱글톤 컨테이너
+스프링은 싱글톤 패턴의 문제점을 해결하여, 객체 인스턴스를 싱글톤으로 관리해준다.
+
+#Stateful(유지) vs Stateless(무상태) 설계
+스프링 컨테이너는 같은 객체 인스턴스를 공유하기 때문에 싱글톤 객체는 상태를 stateful 하게 설계하면 안됨.
+즉 stateless로 설계를 해야한다.
+* 특정 클라이언트에 의존적인 필드 X
+* 특정 클라이언트가 값을 변경할 수 있는 필드 X
+* 가급적 수정보단 읽기만 가능하게 끔
+* 공유되지 않은 지역변수, 파라미터, ThreadLocal 등을 사용해야함.
+
+
+#@Configuration을 사용하지 않고 @Bean만 사용하게되면 어떻게될까?
+@Bean인 메서드들이 스프링 빈으로 다 등록이 되지만, 싱글톤이 깨져버리게 된다.
+
+
+
+#@Autowired @ComponentScan @Component
+스프링은 스프링 빈 등록을 자동으로 해주는 컴포넌트 스캔이라는 기능을 제공한다.
+@ComponentScan을 사용하면 @Component 로 되어있는걸 모두다 스캔한다.
+@Component를 쓰면 해당 인스턴스를 스프링 빈으로 등록해준다.
+
+일단 스프링빈으로 등록된 인스턴스에 
+@Autowired를 생성자위에 쓰면 자동으로 의존관계 주입을 해줌 -> 이때 해당 타입이랑 같은 빈을 찾아서 주입해준다.
+만약 빈에서 같은 타입을 찾아서 주입하려는데 똑같은 타입이 빈으로 여러게 등록이 되어있으면 어떻게하는가?
+
+
 
