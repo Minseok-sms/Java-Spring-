@@ -216,6 +216,7 @@ XML, 자바코드를 사용해도 @Bean, <bean>을 이용해 메타정보를 생
 <img width="546" alt="public void setDiscountPolicy(DiscountPolicy discountPolicy){" src="https://user-images.githubusercontent.com/75271204/175264847-02048dd3-cf48-4b4e-b442-8de3f8f77c4d.png">
 
 필드주입 : 외부에서 변경이 불가능해서 테스트가 불가능하다.(테스트는 순수한 자바코드로 하기 때문에)
+
 <img width="433" alt="@Autowired private MemberRepository memberRepository;" src="https://user-images.githubusercontent.com/75271204/175264908-6ed2e5e0-267d-404f-a634-6ec24215747c.png">
          
 일반메서드 주입 : 일반메서드위에 @Autowired를 사용
