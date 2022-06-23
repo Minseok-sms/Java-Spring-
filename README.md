@@ -202,4 +202,40 @@ XML, 자바코드를 사용해도 @Bean, <bean>을 이용해 메타정보를 생
 만약 빈에서 같은 타입을 찾아서 주입하려는데 똑같은 타입이 빈으로 여러게 등록이 되어있으면 어떻게하는가?
 
 
+@Controller -> 스프링 MVC 컨트롤러로 인식
+@Repository -> 스프링 데잍 접근 계층
+@Configuration -> 스프링의 설정 정보로 인식
+@Service -> 핵심 비지니스 로직
 
+#의존관계주입법 -> 생성자주입, 수정자주입, 필드주입, 일반 메서드 주입
+생성자주입 : 생성자가 하나일시 @Autowired 쓰지않아도 의존관계가 주입이 된다.
+         
+<img width="740" alt="스크린샷 2022-06-22 오후 9 50 23" src="https://user-images.githubusercontent.com/75271204/175264756-1e84fd51-2135-45fc-892b-3053f1cc45d6.png">
+
+수정자주입 : 선택적으로 주입이 가능하다.
+<img width="546" alt="public void setDiscountPolicy(DiscountPolicy discountPolicy){" src="https://user-images.githubusercontent.com/75271204/175264847-02048dd3-cf48-4b4e-b442-8de3f8f77c4d.png">
+
+필드주입 : 외부에서 변경이 불가능해서 테스트가 불가능하다.(테스트는 순수한 자바코드로 하기 때문에)
+<img width="433" alt="@Autowired private MemberRepository memberRepository;" src="https://user-images.githubusercontent.com/75271204/175264908-6ed2e5e0-267d-404f-a634-6ec24215747c.png">
+         
+일반메서드 주입 : 일반메서드위에 @Autowired를 사용
+         
+
+#롬북(Lombok)
+@RequiredArgsConstructor  -> final의 변수의 생성자를 만들어줌
+@Getter, @Setter
+         
+@Autowired는 타입으로 조회해서 의존관계 주입을 해준다.  하지만 같은타입의 빈이 2개이상일때 의존관계 주입하면 오류
+1. @Autowired에 필드명을 매칭시킨다 -> 필드명의 이름에 따라 빈을 찾는다. 
+2. @Qualifier 사용 -> 추가 구분자를 붙여주는 방법이다. 
+3. @Primary -> 우선순위를 해줌
+
+- 조회한 빈이 2개이상일때 그때 모두다 사용할려고 할때
+Map, List를 사용하여서 등록된 빈을 모두 가져온다.
+         
+         
+<img width="759" alt="스크린샷 2022-06-22 오후 11 21 41" src="https://user-images.githubusercontent.com/75271204/175265065-32f0d9cb-0797-4741-888f-90faf28b0a8f.png">
+         
+         
+         
+         
